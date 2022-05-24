@@ -64,5 +64,9 @@ export function frequencia(texto, caracter){
 
 export function maiornumero (maior){
 
+    for (let i = 0; i < maior.length; i++) {
+        
+        
+    }
 
 }
