@@ -61,12 +61,10 @@ export function frequencia(texto, caracter){
 
 }
 
-
-export function maiornumero (maior){
-
+export function maiornumero(maior) {
+    let count = 0;
     for (let i = 0; i < maior.length; i++) {
-        
-        
+        if (maior[i] > count) count = maior[i];
     }
-
-}
+    return count;
+} 
