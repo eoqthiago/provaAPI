@@ -29,3 +29,41 @@ export function tabuada (n){
     }
     return arr
 }
+
+export function primaria (n){
+    let check = false;
+    if(n == 'azul' || n == 'vermelho' || n == 'amarelo'){
+        return check = true;
+    } else{
+        return check;
+    }
+}
+
+export function cinema (qtdinteiras, qtdmeias, diasemana, nacional, valor){
+    if(diasemana == 'quarta' && nacional == 'brasileira'){
+        return qtdinteiras = 5.00;
+    }else if ( diasemana == 'quarta'){
+        return (valor * qtdmeias) / 2;
+    }else if(diasemana != 'quarta' && qtdmeias >= 1 && qtdinteiras >= 1){
+        return valor * qtdinteiras + (valor * qtdmeias / 2);
+    } 
+}
+
+export function frequencia(texto, caracter){
+    let pos = 0;
+
+    while(pos < texto.length){
+        if(texto[pos] == caracter){
+            return pos 
+            
+
+        }
+       pos++;
+    }
+
+}
+
+
+export function maiornumero (n){
+    
+}
