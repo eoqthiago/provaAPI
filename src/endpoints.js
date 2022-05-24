@@ -166,8 +166,11 @@ server.get('/dia2/freqcaracter/:texto/:caracter', (req,resp) => {
 })
 
 server.post('/dia2/maiornumero', (req, resp) => {
-    const maior = req.body.maior;
-    const x = 
+    const valor = req.body.maior;
+    const x = maior(valor)
+    resp.send({
+        maior: x
+    })
 })
 
 

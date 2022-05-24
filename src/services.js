@@ -50,20 +50,19 @@ export function cinema (qtdinteiras, qtdmeias, diasemana, nacional, valor){
 }
 
 export function frequencia(texto, caracter){
-    let pos = 0;
-
-    while(pos < texto.length){
-        if(texto[pos] == caracter){
-            return pos 
-            
-
+    let cont = 0;
+    for (let i = 0; i < texto.length; i++) {
+        if(texto[i] == caracter){
+            cont++
         }
-       pos++;
+        
     }
+    return cont;
 
 }
 
 
-export function maiornumero (n){
-    
+export function maiornumero (maior){
+
+
 }
