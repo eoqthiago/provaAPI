@@ -1,6 +1,6 @@
 import{Router} from 'express'
 
-import  {dobro,somar, media, temperatura, tabuada, primaria, cinema, frequencia} from './services.js'
+import  {dobro,somar, media, temperatura, tabuada, primaria, cinema, frequencia, maiorNumero} from './services.js'
 
 const server = Router();
 
@@ -132,15 +132,10 @@ server.get('/dia2/corprimaria/:cor', (req, resp) => {
 
 server.post('/dia2/ingressocinema', (req,resp) => {
     try {
-
-        const qtdinteiras = req.body.qtdinteiras;
-        const valor = req.body.valor;
-        const qtdmeias = req.body.qtdmeias;
-        const diasemana = req.body.diasemana;
-        const nacional = req.body.nacional;
-        const x = cinema(qtdinteiras, qtdmeias, diasemana, nacional, valor);
+        const {qtdinteiras, qtdmeias, diasemana, nacional }= req.body;
+        const total = cinema(qtdinteiras, qtdmeias, diasemana, nacional);
         resp.send({
-            total:x
+            total:total
         })
         
     } catch (err) {
@@ -152,11 +147,10 @@ server.post('/dia2/ingressocinema', (req,resp) => {
 
 server.get('/dia2/freqcaracter/:texto/:caracter', (req,resp) => {
     try {
-        const texto = req.params.texto;
-        const caracter = req.params.caracter;
-        const x = frequencia(texto,caracter);
+        const {texto, caracter} = req.params;
+        const freq = frequencia(texto,caracter);
         resp.send({
-            freq:x
+            freq: freq
         })
     } catch (err) {
         resp.status(404).send({
@@ -165,16 +159,20 @@ server.get('/dia2/freqcaracter/:texto/:caracter', (req,resp) => {
     }
 })
 
-server.post('/dia2/maiornumero', (req, resp) => {
-    const valor = req.body.maior;
-    const x = maior(valor)
-    resp.send({
-        maior: x
+server.post('/dia2/maiorNumero', (req, resp) => {
+    try {
+        const numeros = req.body;
+        const maior = maiorNumero(numeros);
+        resp.send({
+        maior: maior
     })
+    } catch (err) {
+        resp.status(405).send({
+            error: err.message
+        })
+        
+    }
+
 })
-
-
-
-
 
 export default server

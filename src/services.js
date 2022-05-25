@@ -40,31 +40,32 @@ export function primaria (n){
 }
 
 export function cinema (qtdinteiras, qtdmeias, diasemana, nacional, valor){
-    if(diasemana == 'quarta' && nacional == 'brasileira'){
-        return qtdinteiras = 5.00;
-    }else if ( diasemana == 'quarta'){
-        return (valor * qtdmeias) / 2;
-    }else if(diasemana != 'quarta' && qtdmeias >= 1 && qtdinteiras >= 1){
-        return valor * qtdinteiras + (valor * qtdmeias / 2);
-    } 
+    if(nacional.toLowerCase() == 'brasileira'){
+        return (qtdinteiras + qtdmeias) * 5;
+    }
+    else if( diasemana.toLowerCase() == 'quarta'){
+        return (qtdinteiras + qtdmeias) * 14.25;
+    }
+    else{
+        return(qtdinteiras * 28.5) + (qtdmeias * 14.25);
+    }
 }
 
 export function frequencia(texto, caracter){
     let cont = 0;
-    for (let i = 0; i < texto.length; i++) {
-        if(texto[i] == caracter){
+    for(let letra of texto) {
+        if(letra == caracter){
             cont++
         }
-        
     }
     return cont;
-
 }
 
-export function maiornumero(maior) {
-    let count = 0;
-    for (let i = 0; i < maior.length; i++) {
-        if (maior[i] > count) count = maior[i];
+export function maiorNumero(numeros) {
+    let maior = Number.MIN_VALUE;
+    for (let item of numeros){
+        if(item > maior)
+            maior = item;
     }
-    return count;
-} 
+    return maior;
+}
